@@ -1,0 +1,46 @@
+# Project: Final_Project
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Engine.o Potter.o HighScore.o Gnome.o Traal.o CNCurses.o
+LINKOBJ  = main.o Engine.o Potter.o HighScore.o Gnome.o Traal.o CNCurses.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -L"C:/Users/antonis/Desktop/PDCurses" ../../PDCurses/pdcurses.dll -m32 -pg
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/antonis/Desktop/PDCurses"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"C:/Users/antonis/Desktop/PDCurses"
+BIN      = Final_Project.exe
+CXXFLAGS = $(CXXINCS) -m32 -pg
+CFLAGS   = $(INCS) -m32 -pg
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Engine.o: Engine.cpp
+	$(CPP) -c Engine.cpp -o Engine.o $(CXXFLAGS)
+
+Potter.o: Potter.cpp
+	$(CPP) -c Potter.cpp -o Potter.o $(CXXFLAGS)
+
+HighScore.o: HighScore.cpp
+	$(CPP) -c HighScore.cpp -o HighScore.o $(CXXFLAGS)
+
+Gnome.o: Gnome.cpp
+	$(CPP) -c Gnome.cpp -o Gnome.o $(CXXFLAGS)
+
+Traal.o: Traal.cpp
+	$(CPP) -c Traal.cpp -o Traal.o $(CXXFLAGS)
+
+CNCurses.o: CNCurses.cpp
+	$(CPP) -c CNCurses.cpp -o CNCurses.o $(CXXFLAGS)
