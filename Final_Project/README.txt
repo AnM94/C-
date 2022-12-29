@@ -1,0 +1,1 @@
+Library used: ncurses (on Dev C++ 5.11)
